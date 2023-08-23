@@ -1,0 +1,50 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Ноутбуки",
+      "description": "Список всех ноутбуков"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Мониторы",
+      "description": "Список всех мониторов"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Принтеры",
+      "description": "Список всех принтеров"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Клавиатуры",
+      "description": "Список всех клавиатур"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+      "name": "Карты памяти",
+      "description": "Список всех карт памяти"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 6,
+    "fields": {
+      "name": "Умные колонки",
+      "description": "Список всех умных колонок"
+    }
+  }
+]
