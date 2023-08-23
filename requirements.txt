@@ -5,3 +5,4 @@ tzdata==2023.3
 psycopg2-binary
 pillow
 ipython
+pytils
