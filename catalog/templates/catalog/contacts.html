@@ -1,9 +1,6 @@
 {% extends 'catalog/base.html' %}
-{% block content %}
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Контакты</h1>
-</div>
 
+{% block content%}
 <div class="row text-start">
     <div class="col-lg-9 col-md-6 col-sm-12">
         <div class="card mb-4 box-shadow">
@@ -11,7 +8,7 @@
                 <table class="table table-striped">
                     <tr>
                         <td class="w-25">Страна</td>
-                        <td>USA</td>
+                        <td>Россия</td>
                     </tr>
                     <tr>
                         <td class="w-25">ИНН</td>
@@ -19,13 +16,12 @@
                     </tr>
                     <tr>
                         <td class="w-25">Адрес</td>
-                        <td>Redmond,WA,98052-6399</td>
+                        <td>г.Москва, ул. Можайка, д.29</td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
-
     <div class="col-lg-3 col-md-6 col-sm-12">
         <div class="card mb-4 box-shadow">
             <div class="card-header">
@@ -36,34 +32,23 @@
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="name">Имя</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Ваше имя"
-                               required>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Ваше имя" required>
                     </div>
                     <div class="mb-3">
                         <label for="phone">Телефон</label>
-                        <input type="text" name="phone" class="form-control" id="phone"
-                               placeholder="Контактный телефон" required>
+                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Контактный телефон"
+                               required>
                     </div>
                     <div class="mb-3">
                         <label for="message">Сообщение</label>
                         <textarea type="text" name="message" class="form-control" id="message"
                                   placeholder="Ваше сообщение" required></textarea>
                     </div>
-                    <input type="submit" value="Отправить">
+
+                    <button type="submit" class="btn btn-lg btn-block btn-outline-primary">Отправить</button>
                 </form>
             </div>
         </div>
-    </div>
-    <div class="col-lg-9 col-md-6 col-sm-12">
-        <h3>Контакты из БД:</h3>
-        {% for contact in object_list %}
-        <h5>ID контакта: {{ contact.id }}</h5>
-        <p>Имя: {{ contact.name }}</p>
-        <p>E-mail: {{ contact.email }}</p>
-        <p>Телефон: {{ contact.phone }}</p>
-        <p>Адрес: {{ contact.address }}</p>
-        <br>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}
