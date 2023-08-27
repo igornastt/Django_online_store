@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'catalog',
-    'users',
+    'contacts',
     'blog',
 ]
 
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Django_online_store',
+        'NAME': 'catalog',
         'USER': 'postgres',
         'PASSWORD': '12345'
     }
@@ -135,19 +135,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
-
-
 # Настройка почтового сервиса Яндекс для отправки электронной почты
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_SSL = True
-EMAIL_HOST = "smtp.yandex.ru"
-EMAIL_HOST_USER = 'nata031964@yandex.ru'
-EMAIL_HOST_PASSWORD = '03GarikNast64'
+EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-SERVER_EMAIL = EMAIL_HOST_USER
-EMAIL_ADMIN = EMAIL_HOST_USER
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'Dm1tr1y11@yandex.ru'
+EMAIL_HOST_PASSWORD = 'h!W(S@m1VDLi'

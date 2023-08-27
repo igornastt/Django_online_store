@@ -1,12 +1,7 @@
 from django.apps import AppConfig
 
 
-class UserConfig(AppConfig):
+class ContactsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'users'
+    name = 'contacts'
     verbose_name = 'контакты'
-
-
-class UsersConfig:
-    name = 'users'
-    
