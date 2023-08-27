@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'catalog',
-    'contacts',
+    'users',
     'blog',
 ]
 
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'catalog',
+        'NAME': 'Django_online_store',
         'USER': 'postgres',
         'PASSWORD': '12345'
     }
@@ -140,5 +140,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'Dm1tr1y11@yandex.ru'
-EMAIL_HOST_PASSWORD = 'h!W(S@m1VDLi'
+EMAIL_HOST_USER = 'nata0364@yandex.ru'
+EMAIL_HOST_PASSWORD = '03GarikNast64'
