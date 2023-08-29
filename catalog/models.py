@@ -14,6 +14,8 @@ class Product(models.Model):
     creation_date = models.DateTimeField(verbose_name='дата создания')
     change_date = models.DateTimeField(verbose_name='дата последнего изменения')
 
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, verbose_name='владелец', **NULLABLE)
+
     def __str__(self):
         return f'{self.name}, {self.category}, {self.price}'
 
@@ -22,6 +24,7 @@ class Product(models.Model):
 
         verbose_name = "товар"
         verbose_name_plural = "товары"
+        ordering = ('name',)
 
 
 class Category(models.Model):
