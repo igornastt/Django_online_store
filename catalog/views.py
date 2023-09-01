@@ -1,4 +1,6 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import inlineformset_factory
+from django.http import Http404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 
@@ -27,6 +29,12 @@ class ProductListView(ListView):
 
         return context
 
+    # def get_queryset(self):
+    #     return super().get_queryset().filter(
+    #         name=self.kwargs.get('pk'),
+    #         owner=self.request.user
+    #     )
+
 
 class ProductDetailView(DetailView):
     """Контроллер для страницы с описанием товара"""
@@ -34,7 +42,7 @@ class ProductDetailView(DetailView):
     model = Product
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     """Контроллер для создания нового товара"""
 
     model = Product
@@ -45,16 +53,22 @@ class ProductCreateView(CreateView):
         self.object = form.save()
         self.object.owner = self.request.user
         self.object.save()
+
         return super().form_valid(form)
 
 
-
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     """Контроллер для редактирования товара"""
 
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy('catalog:list')
+
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+        if self.object.owner != self.request.user:
+            raise Http404
+        return self.object
 
     def get_success_url(self):
         return reverse('catalog:update_product', args=[self.kwargs.get('pk')])
@@ -83,9 +97,8 @@ class ProductUpdateView(UpdateView):
         return super().form_valid(form)
 
 
-class ProductDelete(DeleteView):
+class ProductDelete(LoginRequiredMixin, DeleteView):
     """Контроллер для удаления продукта"""
 
     model = Product
-
     success_url = reverse_lazy('catalog:list')
