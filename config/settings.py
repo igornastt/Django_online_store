@@ -138,6 +138,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 AUTH_USER_MODEL = "users.User"
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/users/'
 
 # Настройка почтового сервиса Яндекс для отправки электронной почты
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
