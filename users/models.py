@@ -1,17 +1,17 @@
-from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-from catalog.models import NULLABLE
+NULLABLE = {'blank': True, 'null': True}
 
 
 class User(AbstractUser):
-    """Создание модели - полей контактов в таблице БД"""
+    """Модель пользователя"""
     username = None
-    email = models.EmailField(unique=True, verbose_name='почта')
 
-    phone = models.CharField(max_length=35, verbose_name='телефон', **NULLABLE)
-    avatar = models.ImageField(upload_to='users/', verbose_name='аватар', **NULLABLE)
-    country = models.CharField(max_length=200, verbose_name='страна', **NULLABLE)
+    email = models.EmailField(unique=True, verbose_name="Email")
+    phone = models.CharField(max_length=50, verbose_name="Номер телефона", **NULLABLE)
+    country = models.CharField(max_length=50, verbose_name="Страна", **NULLABLE)
+    avatar = models.ImageField(upload_to="images", verbose_name="Аватар", **NULLABLE)
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

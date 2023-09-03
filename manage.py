@@ -2,7 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+from django.db import utils
 
 def main():
     """Run administrative tasks."""

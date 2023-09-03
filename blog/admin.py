@@ -4,6 +4,4 @@ from blog.models import Blog
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    """Представление раздела - блог в админке"""
-
-    list_display = ('title',)
+    list_display = ('id', 'title','description')
