@@ -36,7 +36,7 @@ class ProductListView(ListView):
     #     )
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(LoginRequiredMixin, DetailView):
     """Контроллер для страницы с описанием товара"""
 
     model = Product
