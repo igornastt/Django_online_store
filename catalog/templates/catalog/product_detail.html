@@ -12,8 +12,10 @@
         <h3>{{ product.price }} руб.</h3><br>
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
+            {% if user.is_superuser %}
                 <a href="{% url 'catalog:update_product' object.pk %}"
                    class="btn btn-sm btn-outline-secondary">Редактировать</a>
+            {% endif %}
                 <a href="{% url 'catalog:delete_product' object.pk %}"
                    class="btn btn-sm btn-outline-danger">Удалить</a>
             </div>
