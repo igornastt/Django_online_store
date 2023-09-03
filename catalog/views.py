@@ -30,10 +30,13 @@ class ProductListView(ListView):
         return context
 
 
-class ProductDetailView(LoginRequiredMixin, DetailView):
+class ProductDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     """Контроллер для страницы с описанием товара"""
 
     model = Product
+    form_class = ProductForm
+    permission_required = 'catalog.change_product
+    success_url = reverse_lazy('catalog:list')
 
 
 class ProductCreateView(LoginRequiredMixin, CreateView):
