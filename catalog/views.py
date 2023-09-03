@@ -29,12 +29,6 @@ class ProductListView(ListView):
 
         return context
 
-    # def get_queryset(self):
-    #     return super().get_queryset().filter(
-    #         name=self.kwargs.get('pk'),
-    #         owner=self.request.user
-    #     )
-
 
 class ProductDetailView(LoginRequiredMixin, DetailView):
     """Контроллер для страницы с описанием товара"""
