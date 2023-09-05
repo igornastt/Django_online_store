@@ -41,6 +41,7 @@ class VersionForm(StyleFormMixin, forms.ModelForm):
         model = Version
         fields = "__all__"
 
+
 class ProductModerForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Product
