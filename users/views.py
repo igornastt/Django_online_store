@@ -39,19 +39,14 @@ class RegisterView(CreateView):
         user.is_active = False
         user.save()
         token = default_token_generator.make_token(user)
-        print('создал токен')
         uid = urlsafe_base64_encode(force_bytes(user.pk))
-        print('скоро создам активейд урл')
         activation_url = reverse_lazy('users:confirm_email', kwargs={'uidb64': uid, 'token': token})
-        print('скоро создам кьюрент файл')
         current_site = '127.0.0.1:8000'
-        print(user.email)
         send_mail(
             to= user.email,
             theme="Регистрация на сайте!",
             message = f"Подтвердите свой адрес электронной почты. Перейдите по ссылке: http://{current_site}{activation_url}"
         )
-        print('письмо отправлено')
         return redirect('users:email_confirmation_sent')
 
 
