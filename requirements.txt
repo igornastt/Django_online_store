@@ -8,3 +8,4 @@ ipython
 pytils
 django-crispy-forms ==2.0
 decouple
+redis
